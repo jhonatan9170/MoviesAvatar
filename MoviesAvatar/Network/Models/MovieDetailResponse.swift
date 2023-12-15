@@ -27,10 +27,12 @@ struct MovieDetailResponse: Codable {
 struct ProductionCompany: Codable {
     let id: Int
     let logoPath: String?
+    let name: String
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case id,name
         case logoPath = "logo_path"
+        
 
     }
 }

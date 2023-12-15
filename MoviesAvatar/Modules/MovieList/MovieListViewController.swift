@@ -33,7 +33,7 @@ class MovieListViewController: UIViewController {
     }
     
     private func setupViews() {
-        self.title = "Upcoming Movies"
+        self.title = "Movies"
         navigationController?.navigationBar.tintColor = .white
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "")
         view.backgroundColor = UIColor(white: 0.95, alpha: 1.0)

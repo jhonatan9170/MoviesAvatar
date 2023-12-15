@@ -1,24 +1,21 @@
 
 import UIKit
 
-class MovieListRouter: MovieListRouterProtocol{
+class MovieDetailRouter: MovieDetailRouterProtocol{
     
     var viewController: UIViewController?
     
-    static func createMovieListModule() -> UIViewController {
-        let presenter: MovieListPresenter & MovieListOutputInteractorProtocol = MovieListPresenter()
-        let view = MovieListViewController(presenter: presenter)
-        let interactor: MovieListInputInteractorProtocol = MovieHomeInteractor()
-        let router: MovieListRouter = MovieListRouter()
+    static func createMovieDetailModule(movieId:Int) -> UIViewController {
+        let presenter: MovieDetailPresenter & MovieDetailOutputInteractorProtocol = MovieDetailPresenter(movieId: movieId)
+        let view = MovieDetailViewController(presenter: presenter)
+        let interactor: MovieDetailInputInteractorProtocol = MovieDetailInteractor()
+        let router: MovieDetailRouter = MovieDetailRouter()
         router.viewController = view
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
         interactor.presenter = presenter
-        
-        let navigationController = UINavigationController(rootViewController: view)
-
-        return navigationController
+        return view
     }
     
     func goMovieDetail(idMovie: Int) {
