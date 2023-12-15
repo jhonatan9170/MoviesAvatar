@@ -25,7 +25,12 @@ class MovieDetailRouter: MovieDetailRouterProtocol{
     
     func showError(error: String) {
         DispatchQueue.main.async { [weak self] in
-            self?.viewController?.showErrorAlert(error: error)
+            self?.viewController?.showErrorAlert(error: error){ [weak self] in
+                self?.back()
+            }
         }
+    }
+    func back() {
+        self.viewController?.navigationController?.popViewController(animated: true)
     }
 }

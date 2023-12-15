@@ -25,7 +25,6 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
         view?.updateMovieDetailLoading(isLoading: true)
         view?.updateRecommendationMoviewsLoading(isLoading: true)
         interactor?.getMovieDetail(movieId: movieId)
-        interactor?.getMoviesRecomended(movieId: movieId)
     }
     
     func showMovieSelection(index: Int) {
@@ -40,6 +39,7 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
 }
 
 extension MovieDetailPresenter: MovieDetailOutputInteractorProtocol {
+    
     func moviesRecomendedDidFetch(moviesResponse: MovieListResponse) {
         self._moviesRecomended = moviesResponse.results
         view?.updateRecommendationMoviewsLoading(isLoading: false)
@@ -47,13 +47,20 @@ extension MovieDetailPresenter: MovieDetailOutputInteractorProtocol {
     }
     
     func movieDetailDidFetch(movieDetail: MovieDetailResponse) {
+        interactor?.getMoviesRecomended(movieId: movieId)
         view?.updateMovieDetailLoading(isLoading: false)
         view?.showMovieDetail(movieDetail: movieDetail)
     }
     
-    func serviceFailed(error: String) {
-        view?.updateRecommendationMoviewsLoading(isLoading: false)
+    func movieDetailFetchFail(error: String) {
         view?.updateMovieDetailLoading(isLoading: false)
+        router?.showError(error: error)
+
+    }
+    
+    func movieRecomendedFetchFail(error: String) {
+        view?.updateRecommendationMoviewsLoading(isLoading: false)
+        view?.hideRecomendedSection()
         router?.showError(error: error)
     }
     

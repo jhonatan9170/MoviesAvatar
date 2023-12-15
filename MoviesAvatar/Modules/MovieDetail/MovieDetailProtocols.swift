@@ -33,7 +33,8 @@ protocol MovieDetailInputInteractorProtocol: AnyObject {
 protocol MovieDetailOutputInteractorProtocol: AnyObject {
     func moviesRecomendedDidFetch(moviesResponse: MovieListResponse)
     func movieDetailDidFetch(movieDetail: MovieDetailResponse)
-    func serviceFailed(error:String)
+    func movieDetailFetchFail(error:String)
+    func movieRecomendedFetchFail(error:String)
 }
 
 protocol MovieDetailRouterProtocol: AnyObject {
@@ -41,5 +42,6 @@ protocol MovieDetailRouterProtocol: AnyObject {
     static func createMovieDetailModule(movieId:Int) -> UIViewController
     
     func goMovieDetail(idMovie: Int)
+    func back()
     func showError(error: String)
 }
