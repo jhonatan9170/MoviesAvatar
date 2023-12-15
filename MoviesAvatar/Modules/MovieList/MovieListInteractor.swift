@@ -1,10 +1,10 @@
 
 import Foundation
 
-class MovieHomeInteractor: MovieListInputInteractorProtocol {
+class MovieListInteractor: MovieListInputInteractorProtocol {
 
     
-    var presenter: MovieListOutputInteractorProtocol?
+    weak var presenter: MovieListOutputInteractorProtocol?
     var moviesService: MoviesServiceProtocol = MoviesService()
 
     func getMovieList(page: Int) {

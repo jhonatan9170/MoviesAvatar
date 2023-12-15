@@ -3,12 +3,12 @@ import UIKit
 
 class MovieListRouter: MovieListRouterProtocol{
     
-    var viewController: UIViewController?
+    weak var viewController: UIViewController?
     
     static func createMovieListModule() -> UIViewController {
         let presenter: MovieListPresenter & MovieListOutputInteractorProtocol = MovieListPresenter()
         let view = MovieListViewController(presenter: presenter)
-        let interactor: MovieListInputInteractorProtocol = MovieHomeInteractor()
+        let interactor: MovieListInputInteractorProtocol = MovieListInteractor()
         let router: MovieListRouter = MovieListRouter()
         router.viewController = view
         presenter.view = view

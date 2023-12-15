@@ -3,7 +3,7 @@ import UIKit
 
 class MovieDetailRouter: MovieDetailRouterProtocol{
     
-    var viewController: UIViewController?
+    weak var viewController: UIViewController?
     
     static func createMovieDetailModule(movieId:Int) -> UIViewController {
         let presenter: MovieDetailPresenter & MovieDetailOutputInteractorProtocol = MovieDetailPresenter(movieId: movieId)

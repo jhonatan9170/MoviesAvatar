@@ -2,7 +2,7 @@ import Foundation
 
 class MovieDetailInteractor: MovieDetailInputInteractorProtocol {
     
-    var presenter: MovieDetailOutputInteractorProtocol?
+    weak var presenter: MovieDetailOutputInteractorProtocol?
     var moviesService: MoviesServiceProtocol = MoviesService()
 
     

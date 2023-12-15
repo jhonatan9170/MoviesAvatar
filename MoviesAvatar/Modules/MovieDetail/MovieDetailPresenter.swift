@@ -13,7 +13,7 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
     
     var interactor: MovieDetailInputInteractorProtocol?
     
-    var view: MovieDetailViewProtocol?
+    weak var view: MovieDetailViewProtocol?
     
     var router: MovieDetailRouterProtocol?
     
