@@ -97,7 +97,7 @@
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="maA-Mb-Ciq"/>
-            <accessibility key="accessibilityConfiguration" identifier="MovieCellTableViewCell"/>
+            <accessibility key="accessibilityConfiguration" identifier="MovieListTableViewCell"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                     <color key="value" systemColor="opaqueSeparatorColor"/>

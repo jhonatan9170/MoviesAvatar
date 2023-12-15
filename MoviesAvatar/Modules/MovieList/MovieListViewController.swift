@@ -3,16 +3,16 @@ import UIKit
 
 class MovieListViewController: UIViewController {
 
-    @IBOutlet weak var moviesTableView: UITableView! {
+    var presenter: MovieListPresenterProtocol
+    
+    @IBOutlet private weak var moviesTableView: UITableView! {
         didSet {
-
             moviesTableView.register(UINib(nibName: "MovieListTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieListTableViewCell")
-            moviesTableView.backgroundColor = .clear
-            moviesTableView.backgroundColor = .clear
         }
     }
 
-    init() {
+    init(presenter: MovieListPresenter) {
+        self.presenter = presenter
         super.init(nibName: String(describing: MovieListViewController.self), bundle: Bundle.main)
     }
     
@@ -24,33 +24,60 @@ class MovieListViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupDelegates()
+        presenter.loadMovies()
     }
 
-    func setupDelegates() {
+    private func setupDelegates() {
         moviesTableView.dataSource = self
         moviesTableView.delegate = self
     }
     
-    func setupViews() {
+    private func setupViews() {
         self.title = "Upcoming Movies"
         navigationController?.navigationBar.tintColor = .white
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "")
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
     }
 }
 
 extension MovieListViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return presenter.movies.count
     }
     
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListTableViewCell", for: indexPath) as? MovieListTableViewCell else {
             return UITableViewCell()
         }
+        let movie = presenter.movieByIndex(index: indexPath.row)
+        cell.configure(movie: movie)
+        if indexPath.row == presenter.movies.count - 1 {
+            presenter.loadMovies()
+        }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter.showMovieSelection(index: indexPath.row)
+    }
 
+
+}
+
+extension MovieListViewController: MovieListViewProtocol {
+    func showMovies() {
+        DispatchQueue.main.async {[weak self] in
+            self?.moviesTableView.reloadData()
+        }
+    }
+    func updateLoading(isLoading: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            if isLoading {
+                self?.view.addSpinner()
+            } else {
+                self?.view.removeSpinner()
+            }
+        }
     }
 }
+

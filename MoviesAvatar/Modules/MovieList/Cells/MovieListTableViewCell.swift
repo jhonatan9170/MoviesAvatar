@@ -1,23 +1,19 @@
-
 import UIKit
-
-
+import Kingfisher
 
 class MovieListTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var movieUIImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private weak var movieUIImage: UIImageView!
+    
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+    func configure(movie: MovieResponse){
+        titleLabel.text = movie.title
+        movieUIImage.kf.setImage(with: movie.getURLPoster(),placeholder: UIImage(named: "imagePlaceholder"))
     }
-    
 }

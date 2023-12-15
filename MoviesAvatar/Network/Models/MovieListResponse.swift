@@ -23,9 +23,11 @@ struct MovieListResponse: Codable {
 struct MovieResponse: Codable {
     let id: Int
     let title: String
-
+    let posterPath: String?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case title
+        case posterPath = "poster_path"
     }
 }
