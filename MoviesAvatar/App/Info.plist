@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>PINNED_PUBLIC_KEY_HASH</key>
+	<string>$(PINNED_PUBLIC_KEY_HASH)</string>
+	<key>AUTORIZACION_KEY</key>
+	<string>$(AUTORIZACION_KEY)</string>
+	<key>BASE_IMAGE_URL</key>
+	<string>https://image.tmdb.org/t/p/</string>
+	<key>BASE_URL</key>
+	<string>https://api.themoviedb.org/3/movie/</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

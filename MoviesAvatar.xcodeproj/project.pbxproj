@@ -75,6 +75,7 @@
 		03BF1AE12B2C25550088F1D8 /* MovieDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailInteractor.swift; sourceTree = "<group>"; };
 		03BF1AE32B2C27060088F1D8 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		03BF1AE52B2C29B80088F1D8 /* MovieDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailRouter.swift; sourceTree = "<group>"; };
+		03DDADCD2B2C3EDB009F3FEA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		4B89F72B897C06147813C288 /* Pods-MoviesAvatar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesAvatar.debug.xcconfig"; path = "Target Support Files/Pods-MoviesAvatar/Pods-MoviesAvatar.debug.xcconfig"; sourceTree = "<group>"; };
 		4BF7142D2AF13FFC5AFAAA22 /* Pods_MoviesAvatar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesAvatar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6891C797564DD2AF7BE45378 /* Pods-MoviesAvatar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesAvatar.release.xcconfig"; path = "Target Support Files/Pods-MoviesAvatar/Pods-MoviesAvatar.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		039E6F842B2BAF6200272EF3 /* MoviesAvatar */ = {
 			isa = PBXGroup;
 			children = (
-				039E6F932B2BAF6300272EF3 /* Info.plist */,
 				039E6F9A2B2BB3FC00272EF3 /* App */,
 				039E6F9B2B2BB40D00272EF3 /* Network */,
 				039E6F9C2B2BB41C00272EF3 /* Modules */,
@@ -125,9 +125,11 @@
 		039E6F9A2B2BB3FC00272EF3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				039E6F932B2BAF6300272EF3 /* Info.plist */,
 				039E6F852B2BAF6200272EF3 /* AppDelegate.swift */,
 				039E6F872B2BAF6200272EF3 /* SceneDelegate.swift */,
 				039E6F902B2BAF6300272EF3 /* LaunchScreen.storyboard */,
+				03DDADCD2B2C3EDB009F3FEA /* Config.xcconfig */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -432,6 +434,7 @@
 /* Begin XCBuildConfiguration section */
 		039E6F942B2BAF6300272EF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03DDADCD2B2C3EDB009F3FEA /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -495,6 +498,7 @@
 		};
 		039E6F952B2BAF6300272EF3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03DDADCD2B2C3EDB009F3FEA /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -560,7 +564,7 @@
 				DEVELOPMENT_TEAM = 7RRD9A765A;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoviesAvatar/Info.plist;
+				INFOPLIST_FILE = MoviesAvatar/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -589,7 +593,7 @@
 				DEVELOPMENT_TEAM = 7RRD9A765A;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoviesAvatar/Info.plist;
+				INFOPLIST_FILE = MoviesAvatar/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

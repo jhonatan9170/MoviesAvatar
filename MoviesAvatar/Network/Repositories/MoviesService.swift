@@ -40,7 +40,7 @@ class MoviesService:MoviesServiceProtocol {
         let headers = [
             "Authorization": Constants.authorizacionKey
         ]
-        let url = Constants.baseURL + "/" + String(id)
+        let url = Constants.baseURL + String(id)
         apiClient.request(url: url, method: .get, headers: headers, parameters: nil){(result : Result<MovieDetailResponse, APIClientError>) in
             switch result {
             case .success(let movie):
@@ -55,7 +55,7 @@ class MoviesService:MoviesServiceProtocol {
         let headers = [
             "Authorization": Constants.authorizacionKey
         ]
-        let url = Constants.baseURL + "/" + String(id)  + "/recommendations"
+        let url = Constants.baseURL + String(id)  + "/recommendations"
         apiClient.request(url: url, method: .get, headers: headers, parameters: nil){(result : Result<MovieListResponse, APIClientError>) in
             switch result {
             case .success(let movies):
